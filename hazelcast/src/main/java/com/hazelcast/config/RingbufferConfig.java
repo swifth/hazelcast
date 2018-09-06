@@ -88,6 +88,23 @@ public class RingbufferConfig implements SplitBrainMergeTypeProvider, Identified
     public RingbufferConfig(String name) {
         this.name = checkNotNull(name, "name can't be null");
     }
+    
+    /**
+     * Creates a RingbufferConfig with the provided name.
+     *
+     * @param name the name
+     * @param capacity the ringbuffer's capacity, valid range is [100, 1000000], out of the rang will be bounds to the nearer bound.
+     * @throws java.lang.NullPointerException if name is {@code null}
+     */
+    public RingbufferConfig(String name, int capacity) {
+        this.name = checkNotNull(name, "name can't be null");
+        if(capacity<1) {
+            capacity = 100;
+        } else if(capacity > 1000000) {
+            capacity = 1000000;
+        }
+        this.capacity = capacity;
+    }
 
     /**
      * Clones a RingbufferConfig
