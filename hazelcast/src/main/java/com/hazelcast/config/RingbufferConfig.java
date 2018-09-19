@@ -48,7 +48,7 @@ public class RingbufferConfig implements SplitBrainMergeTypeProvider, Identified
     /**
      * Default value of capacity of the RingBuffer.
      */
-    public static int DEFAULT_CAPACITY = 100;
+    public static int DEFAULT_CAPACITY = 20;
     /**
      * Default value of synchronous backup count
      */
